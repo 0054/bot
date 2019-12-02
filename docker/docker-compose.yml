@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  bot:
+    build: 
+      context: ../
+      dockerfile: ./docker/bot/Dockerfile
+    environment:
+      BOT_TOKEN: $BOT_TOKEN
+      SOCKS5_PROXY: $SOCKS5_PROXY
+      SOCKS5_PROXY_PORT: $SOCKS5_PROXY_PORT
+      SOCKS5_USER: $SOCKS5_USER
+      SOCKS5_PASSWORD: $SOCKS5_PASSWORD
+
+  # nginx:
+  #   image: nginx:latest
+  #   ports:
+  #     - '443:443'
+
