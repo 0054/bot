@@ -9,6 +9,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 def echo(update, context):
+    logger.info(f'{update.message.date} - Chat: {update.message.chat_id} User: {update.message.from_user} Message: {update.message.text}')
     update.message.reply_text(update.message.text)
 
 def start(update, context):
@@ -22,6 +23,7 @@ def help(update, context):
 
 def test(update, context):
     data = dir(update.message)
+    data = f'chat_id - {update.message.chat_id}, date - {update.message.date}, from_user - {update.message.from_user}'
     context.bot.send_message(chat_id=update.effective_chat.id, text=data)
 
 def error(update, context):
